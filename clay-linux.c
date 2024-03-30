@@ -22,13 +22,16 @@ int main() {
     // Initialize curses
     initscr();
     cbreak();
+    // needed for bindings, trust me.
+    noecho();
     getmaxyx(stdscr, row, col);
     printw(" CLaY - TUI-Based SSH Client :: DEBUG x=%d, y=%d ::", col, row);
     refresh();
     // newwin(numberOfRows, numberOfCols, startY, startX);
     WINDOW* mainwin = newwin(row - 2, col - 2, 1, 1);
     WINDOW* alertwin = newwin((row/2)-1, col/2, row/2, col/2);
-    WINDOW* terminal = newwin(row/2, (col/2)-5,  row/2, col-col+1);
+    // TODO: this window needs to be in that right spot, how?
+    WINDOW* terminal = newwin(row, (col/2)-5,  (row/2)*2, col-col+0);
     
     if (mainwin == NULL) {
         printw("Error creating window!");
@@ -84,6 +87,7 @@ int main() {
                     endwin();
                     return 1;
                 }
+                echo();
                 box(alertwin, 0,0);
                 mvwprintw(alertwin, 1, 1, "Enter Hostname/IP:");
                 box(alertwin, 0,0);

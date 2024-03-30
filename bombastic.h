@@ -4,4 +4,7 @@
 // ctrl modifer
 #define CTRL(x) ((x) & 0x1f)
 
+//TODO: add modifiers for shift and alt.
+
+
 #endif
