@@ -1,3 +1,7 @@
+// CLaY - TUI-based ssh client
+// built from 2 diffrent OSs
+// dLL44 on git, ya herd?
+
 #include "include/curses.h"
 #include <string.h>
 #include <stdbool.h>
@@ -23,6 +27,7 @@ int main() {
     // newwin(numberOfRows, numberOfCols, startY, startX);
     WINDOW* mainwin = newwin(row - 2, col - 2, 1, 1);
     WINDOW* alertwin = newwin((row/2)-1, col/2, row/2, col/2);
+    WINDOW* terminal = newwin(row/2, (col/2)-5,  row/2, col-col+1);
     
     if (mainwin == NULL) {
         printw("Error creating window!");
@@ -153,6 +158,12 @@ int main() {
             case CTRL('c'):
                 running = false; 
                 break;
+            case CTRL('g'):
+                box(terminal, 0,0);
+                wrefresh(terminal);
+                getch();
+                wclear(terminal);
+                wrefresh(terminal);
             default: break;
         }
     }
