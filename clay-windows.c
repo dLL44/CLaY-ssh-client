@@ -2,9 +2,10 @@
 // built from 2 diffrent OSs
 // dLL44 on git, ya herd?
 
-#include "include/curses.h"
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
+#include "include/curses.h"
 #include "bombastic.h"
 #include "libssh/libssh.h"
 
