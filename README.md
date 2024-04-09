@@ -2,9 +2,9 @@
 PuTTY sucks personally, so im making CLaY.
 
 ## main features
-TUI screen w/ ncurses/pdcurses 
-SSH functionality w/ libssh
-Bindings
+ - TUI screen w/ ncurses/pdcurses 
+ - SSH functionality w/ libssh
+ - Bindings
 
 > [!IMPORTANT]
 >  This is still a Work In Progress, expect bugs/missing features every push.
